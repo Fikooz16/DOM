@@ -1,0 +1,76 @@
+@import url("https://fonts.googleapis.com/css2?family=Bayon&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Bayon", sans-serif;
+}
+
+nav {
+  height: 70px;
+  width: 100vw;
+  background-color: #f100a9;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 32px;
+  font-weight: bold;
+}
+
+nav i {
+  font-size: 32px;
+}
+
+.bar {
+  height: 4px;
+  width: 32px;
+  background-color: black;
+  margin-bottom: 5px;
+  border-radius: 4px;
+  transition: all 0.3s ease-in-out;
+}
+
+.bar.last-child {
+  margin-bottom: 0;
+}
+
+.menu {
+  display: none;
+}
+
+@media screen and (max-width: 1024px) {
+  .menu {
+    display: block;
+  }
+  nav ul {
+    width: 100vw;
+    height: calc(100vh - 70px);
+    position: absolute;
+    top: 70px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #f100a9;
+    transform: translateX(100%);
+    transition: all 0.3s ease-in-out;
+  }
+  nav ul.active {
+    transform: translateX(0%);
+  }
+  .menu.active .bar:first-child {
+    transform: rotate(45deg) translate(5px, 8px);
+  }
+  .menu.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+  .menu.active .bar:last-child {
+    transform: rotate(-45deg) translate(5px, -8px);
+  }
+}
